@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas de Performance</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            padding: 15px 12px;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        th:first-child {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            color: #4a5568;
+            font-weight: 500;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        td:first-child {
+            text-align: left;
+            padding-left: 20px;
+            font-weight: 600;
+            color: #2d3748;
+            background: linear-gradient(90deg, #f7fafc, #edf2f7);
+        }
+
+        tr:hover td {
+            background-color: #f1f5f9;
+            transform: scale(1.01);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compression {
+            --primary-color: #667eea;
+        }
+
+        .decompression {
+            --primary-color: #764ba2;
+        }
+
+        .compression th {
+            background: linear-gradient(135deg, #667eea, #5a67d8);
+        }
+
+        .decompression th {
+            background: linear-gradient(135deg, #764ba2, #6b46c1);
+        }
+
+        .value {
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 12px;
+            padding: 4px 8px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Performance de Compressão e Descompressão</h1>
+    
+    <div class="table-container compression">
+        <h2>🗜️ Tempo de Compressão (segundos)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de Entrada</th>
+                    <th>26</th>
+                    <th>104</th>
+                    <th>520</th>
+                    <th>1040</th>
+                    <th>5200</th>
+                    <th>10400</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bloco único</td>
+                    <td><span class="value">0,0000042</span></td>
+                    <td><span class="value">0,0000105</span></td>
+                    <td><span class="value">0,000039</span></td>
+                    <td><span class="value">0,000085</span></td>
+                    <td><span class="value">0,000215</span></td>
+                    <td><span class="value">0,000319</span></td>
+                </tr>
+                <tr>
+                    <td>Sem repetição</td>
+                    <td><span class="value">0,0000108</span></td>
+                    <td><span class="value">0,0000280</span></td>
+                    <td><span class="value">0,000115</span></td>
+                    <td><span class="value">0,000248</span></td>
+                    <td><span class="value">0,000460</span></td>
+                    <td><span class="value">0,000807</span></td>
+                </tr>
+                <tr>
+                    <td>Alta repetição</td>
+                    <td><span class="value">0,0000047</span></td>
+                    <td><span class="value">0,0000090</span></td>
+                    <td><span class="value">0,000040</span></td>
+                    <td><span class="value">0,000072</span></td>
+                    <td><span class="value">0,000175</span></td>
+                    <td><span class="value">0,000267</span></td>
+                </tr>
+                <tr>
+                    <td>Repetição parcial</td>
+                    <td><span class="value">0,0000052</span></td>
+                    <td><span class="value">0,0000130</span></td>
+                    <td><span class="value">0,000041</span></td>
+                    <td><span class="value">0,000102</span></td>
+                    <td><span class="value">0,000197</span></td>
+                    <td><span class="value">0,000321</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container decompression">
+        <h2>📦 Tempo de Descompressão (segundos)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de Entrada</th>
+                    <th>26</th>
+                    <th>104</th>
+                    <th>520</th>
+                    <th>1040</th>
+                    <th>5200</th>
+                    <th>10400</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bloco único</td>
+                    <td><span class="value">0,0000048</span></td>
+                    <td><span class="value">0,000011</span></td>
+                    <td><span class="value">0,000028</span></td>
+                    <td><span class="value">0,000052</span></td>
+                    <td><span class="value">0,000092</span></td>
+                    <td><span class="value">0,000158</span></td>
+                </tr>
+                <tr>
+                    <td>Sem repetição</td>
+                    <td><span class="value">0,0000115</span></td>
+                    <td><span class="value">0,000035</span></td>
+                    <td><span class="value">0,000133</span></td>
+                    <td><span class="value">0,000280</span></td>
+                    <td><span class="value">0,000670</span></td>
+                    <td><span class="value">0,000940</span></td>
+                </tr>
+                <tr>
+                    <td>Alta repetição</td>
+                    <td><span class="value">0,0000047</span></td>
+                    <td><span class="value">0,000010</span></td>
+                    <td><span class="value">0,000023</span></td>
+                    <td><span class="value">0,000045</span></td>
+                    <td><span class="value">0,000079</span></td>
+                    <td><span class="value">0,000131</span></td>
+                </tr>
+                <tr>
+                    <td>Repetição parcial</td>
+                    <td><span class="value">0,0000053</span></td>
+                    <td><span class="value">0,000013</span></td>
+                    <td><span class="value">0,000029</span></td>
+                    <td><span class="value">0,000058</span></td>
+                    <td><span class="value">0,000151</span></td>
+                    <td><span class="value">0,000280</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
